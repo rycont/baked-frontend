@@ -4,18 +4,15 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Baking News</title>
+        <script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id="040bd783-c6c7-40c4-86bf-eb6e5bd74848"
+        ></script>
     </head>
     <body>
         <script type="module">
-            import { pb } from './db.ts'
-
-            const isLoggedIn = pb.authStore.isValid
-
-            if (!isLoggedIn) {
-                location.href = '/login/index.html'
-            } else {
-                location.href = '/newsletter/index.html'
-            }
+            location.href = '/newsletter/index.html'
         </script>
     </body>
 </html>

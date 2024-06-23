@@ -7,11 +7,11 @@ import '@shade/dist/elements/typo'
 import '@components/gradual-renderer'
 
 import { READING_LEVEL_ORDER } from '@/constants'
-import { pb } from '@/db'
+import { pb } from '@/utils/db'
 import { Collections, UsersReadingLevelOptions } from '@/pocketbase-types'
-import { getMe } from '@utils/getMe'
 import { For, Show, createSignal } from 'solid-js'
 import { popAppearProgressiveStyle } from '@shade/theme.css'
+import { User } from '@/entity/user'
 
 const [responseMesage, setResponseMessage] = createSignal<string | null>(null)
 
@@ -71,7 +71,7 @@ function handleFeedback(feedback: string) {
 }
 
 async function moveReadingLevel(delta: number) {
-    const me = await getMe()
+    const me = await User.getMe()
     const currentReadingLevel = me.reading_level || UsersReadingLevelOptions.E15
 
     const currentIndex = READING_LEVEL_ORDER.indexOf(currentReadingLevel)

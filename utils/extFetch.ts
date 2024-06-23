@@ -1,6 +1,6 @@
 const corsAvoidServer = 'https://baked-rss.rycont.workers.dev'
 
-export async function cfetch(...args: Parameters<typeof fetch>) {
+export async function extFetch(...args: Parameters<typeof fetch>) {
     let [input, init] = args
 
     if (typeof input === 'string') {

@@ -1,4 +1,4 @@
-import { pb } from '../../db'
+import { pb } from '../../utils/db'
 import { ShadeFloatingButton } from '@shade/dist/elements/floating-button'
 import { DefineOnce } from '@shade/util'
 import kakaoIcon from './kakao.svg?url'

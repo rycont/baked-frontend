@@ -1,4 +1,4 @@
-import { pb } from '@/db'
+import { pb } from '@/utils/db'
 import { GradualRenderer } from '../components/gradual-renderer'
 import { getElements } from '../utils/getElements'
 

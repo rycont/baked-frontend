@@ -1,11 +1,11 @@
-import { pb } from '@/db'
+import { pb } from '@/utils/db'
+import { User } from '@/entity/user'
 import { Collections } from '@/pocketbase-types'
-import { getMe } from '@utils/getMe'
 
 export async function useRSSProvider(providerId: string) {
-    const me = await getMe()
+    const me = await User.getMe()
 
-    const newUsingProviders = [...me.using_providers, providerId]
+    const newUsingProviders = [...me.usingProviders, providerId]
 
     await pb.collection(Collections.Users).update(me.id, {
         using_providers: newUsingProviders,

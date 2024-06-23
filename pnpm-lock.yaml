@@ -32,7 +32,7 @@ importers:
         version: 20.11.30
       '@vanilla-extract/vite-plugin':
         specifier: ^4.0.9
-        version: 4.0.9(@types/node@20.11.30)(vite@5.1.6)
+        version: 4.0.9(@types/node@20.11.30)(vite@5.1.6(@types/node@20.11.30))
       glob:
         specifier: ^10.3.10
         version: 10.3.10
@@ -44,10 +44,10 @@ importers:
         version: 5.1.6(@types/node@20.11.30)
       vite-plugin-solid:
         specifier: ^2.10.2
-        version: 2.10.2(solid-js@1.8.17)(vite@5.1.6)
+        version: 2.10.2(solid-js@1.8.17)(vite@5.1.6(@types/node@20.11.30))
       vite-plugin-solid-svg:
         specifier: ^0.8.1
-        version: 0.8.1(solid-js@1.8.17)(vite@5.1.6)
+        version: 0.8.1(solid-js@1.8.17)(vite@5.1.6(@types/node@20.11.30))
 
 packages:
 
@@ -1347,7 +1347,7 @@ snapshots:
 
   '@vanilla-extract/private@1.0.4': {}
 
-  '@vanilla-extract/vite-plugin@4.0.9(@types/node@20.11.30)(vite@5.1.6)':
+  '@vanilla-extract/vite-plugin@4.0.9(@types/node@20.11.30)(vite@5.1.6(@types/node@20.11.30))':
     dependencies:
       '@vanilla-extract/integration': 7.1.4(@types/node@20.11.30)
       vite: 5.1.6(@types/node@20.11.30)
@@ -1812,13 +1812,13 @@ snapshots:
 
   vite-plugin-open-graph@2.0.4: {}
 
-  vite-plugin-solid-svg@0.8.1(solid-js@1.8.17)(vite@5.1.6):
+  vite-plugin-solid-svg@0.8.1(solid-js@1.8.17)(vite@5.1.6(@types/node@20.11.30)):
     dependencies:
       solid-js: 1.8.17
       svgo: 3.3.2
       vite: 5.1.6(@types/node@20.11.30)
 
-  vite-plugin-solid@2.10.2(solid-js@1.8.17)(vite@5.1.6):
+  vite-plugin-solid@2.10.2(solid-js@1.8.17)(vite@5.1.6(@types/node@20.11.30)):
     dependencies:
       '@babel/core': 7.24.5
       '@types/babel__core': 7.20.5
@@ -1827,21 +1827,21 @@ snapshots:
       solid-js: 1.8.17
       solid-refresh: 0.6.3(solid-js@1.8.17)
       vite: 5.1.6(@types/node@20.11.30)
-      vitefu: 0.2.5(vite@5.1.6)
+      vitefu: 0.2.5(vite@5.1.6(@types/node@20.11.30))
     transitivePeerDependencies:
       - supports-color
 
   vite@5.1.6(@types/node@20.11.30):
     dependencies:
-      '@types/node': 20.11.30
       esbuild: 0.19.12
       postcss: 8.4.35
       rollup: 4.13.0
     optionalDependencies:
+      '@types/node': 20.11.30
       fsevents: 2.3.3
 
-  vitefu@0.2.5(vite@5.1.6):
-    dependencies:
+  vitefu@0.2.5(vite@5.1.6(@types/node@20.11.30)):
+    optionalDependencies:
       vite: 5.1.6(@types/node@20.11.30)
 
   which@2.0.2:

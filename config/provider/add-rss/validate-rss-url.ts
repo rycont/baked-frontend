@@ -1,7 +1,7 @@
 import Parser from 'rss-parser/dist/rss-parser.min.js'
 
+import { extFetch } from '@utils/extFetch'
 import { Result } from '@/types/result'
-import { extFetch } from '@/extFetch'
 
 const parser = new Parser()
 

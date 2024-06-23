@@ -1,9 +1,10 @@
-import { pb } from '../db'
-import { ContentProvidersResponse, UsersResponse } from '../pocketbase-types'
-import { assert } from './assert'
-import { cache } from './cached'
+import { CachedFunction } from '@utils/cachedFunction'
+import { pb } from '@utils/db'
 
-export const getMe = cache(async function getMe() {
+import { UsersResponse, ContentProvidersResponse } from '@/pocketbase-types'
+import { assert } from '@utils/assert'
+
+export const getMe = new CachedFunction(async () => {
     try {
         assert(pb.authStore.model)
         const myId = pb.authStore.model.id

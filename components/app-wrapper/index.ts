@@ -25,7 +25,6 @@ export class AppWrapper extends ShadeContainerNarrow {
     ) {
         if (name === 'appbar') {
             const showAppBar = newValue !== null
-            console.log(name, newValue)
 
             if (showAppBar) {
                 this.style.setProperty(
@@ -46,7 +45,6 @@ export class AppWrapper extends ShadeContainerNarrow {
     get appBar() {
         if (!this._appBar) {
             const appbarInstance = document.createElement(BOTTOM_BAR)
-            console.log(appbarInstance)
 
             if (!(appbarInstance instanceof BottomBar)) {
                 throw new Error('Cannot build appbar instance')

@@ -1,4 +1,4 @@
-import { Article } from './article'
+import { Article } from '@/types/article'
 import CARD from '@shade/dist/elements/card'
 import { SUBTITLE, SMALL_TEXT } from '@shade/dist/elements/typo'
 

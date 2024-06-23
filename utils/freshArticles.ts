@@ -1,4 +1,4 @@
-import { Article } from '../article'
+import { Article } from '../types/article'
 
 export function dismissUsedArticles(articles: Article[]) {
     if (import.meta.env.VITE_IGNORE_DISMISSED_ARTICLES) {

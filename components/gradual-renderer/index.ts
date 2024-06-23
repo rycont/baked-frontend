@@ -1,9 +1,9 @@
-import { Article } from '../../article'
-import { buildLinkCard } from '../../linkCard'
+import { Article } from '../../types/article'
 import INLINE_LINK, { ShadeInlineLink } from '@shade/dist/elements/inline-link'
 import { TEXT_CONTENT, TITLE } from '@shade/dist/elements/typo'
 import { DefineOnce } from '@shade/util'
 import { rendererStyle, tokenAnimation } from './style.css'
+import { buildLinkCard } from '@components/link-card/build'
 
 export class GradualRenderer {
     renderQueue: string[] = []
@@ -252,7 +252,13 @@ export class GradualRendererComponent extends HTMLElement {
         }
 
         if (name === 'referring-article' && newValue) {
-            this.renderer.referringArticles = JSON.parse(newValue)
+            let referringArticles: Article[] = []
+
+            try {
+                referringArticles = JSON.parse(newValue)
+            } catch (e) {}
+
+            this.renderer.referringArticles = referringArticles
         }
     }
 }

@@ -1,19 +1,17 @@
-import { pb } from '@/db'
+import { pb } from '@/utils/db'
 import { setUsingProviderIds, usingProviderIds } from './widgets/storage'
 import { Collections } from '@/pocketbase-types'
+import { User } from '@/entity/user'
 
 export default {
-    onChange(
+    async onChange(
         providerId: string,
         e: Event & {
             currentTarget: HTMLInputElement
             target: HTMLInputElement
         }
     ) {
-        if (!pb.authStore.model) {
-            location.href = '/login/index.html'
-            return
-        }
+        await User.getMe()
 
         const modification = e.target.checked ? 'add' : 'remove'
 
@@ -38,14 +36,10 @@ export default {
         this.saveProviderList(newUsingProviderIds)
     },
     async saveProviderList(newUsingProviderIds: string[]) {
-        if (!pb.authStore.model) {
-            location.href = '/login/index.html'
-            return
-        }
-
+        const me = await User.getMe()
         setUsingProviderIds(newUsingProviderIds)
 
-        await pb.collection(Collections.Users).update(pb.authStore.model.id, {
+        await pb.collection(Collections.Users).update(me.id, {
             using_providers: newUsingProviderIds,
         })
     },

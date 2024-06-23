@@ -1,7 +1,7 @@
+import { Newsletter } from '@/types/newsletter'
 import { NEWSLETTER_STORAGE_PREFIX } from '../constants'
-import type { createNewsletterFromArticles } from '../utils/api'
 
-export function getLastNewsletter() {
+export function getRecentNewsletter() {
     const keys = [...Array(localStorage.length)].map(
         (_, i) => localStorage.key(i)!
     )
@@ -17,7 +17,12 @@ export function getLastNewsletter() {
     const lastNewsletterKey = newsletterKeys.slice(-1)[0]
     const lastNewsletter = JSON.parse(
         localStorage.getItem(lastNewsletterKey)!
-    ) as Awaited<ReturnType<typeof createNewsletterFromArticles>>
+    ) as Newsletter
 
     return lastNewsletter
+}
+
+export function saveNewsletter(newsletter: Newsletter) {
+    const key = `${NEWSLETTER_STORAGE_PREFIX}-${Date.now()}`
+    localStorage.setItem(key, JSON.stringify(newsletter))
 }
